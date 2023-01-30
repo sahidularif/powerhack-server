@@ -2,10 +2,11 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const DBLOCAL = `mongodb://localhost:27017/powerhack`
-const DB = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.or4h7.mongodb.net/powerhack?retryWrites=true&w=majority`
+const DB = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.or4h7.mongodb.net/powehack?retryWrites=true&w=majority`
+const atlas = `mongodb+srv://admin:admin@cluster0.or4h7.mongodb.net/powehack?retryWrites=true&w=majority`
 module.exports = async () => {
     try {
-        await mongoose.connect(DB, {
+        await mongoose.connect(atlas, {
             autoIndex: false, // Don't build indexes
             maxPoolSize: 10, // Maintain up to 10 socket connections
             serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
